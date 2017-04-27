@@ -3,8 +3,13 @@ public class ExtraIntListPractice {
       * each element incremented by x. L is not allowed
       * to change. */
     public static IntList incrList(IntList L, int x) {
-        /* Your code here. */
-        return L;        
+        IntList g;
+        if (L == null) {
+            return g;
+        } else {
+            g = new IntList(L.first + x, incrList(L.rest, x));
+        }
+        return g;        
     }
 
     /** Returns an IntList identical to L, but with
@@ -12,6 +17,12 @@ public class ExtraIntListPractice {
       * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
+        if (L == null) {
+            return L;
+        } else {
+            L.first = L.first + x;
+            L.rest = dincrList(L.rest, int x);
+        }
         return L;
     }
 
